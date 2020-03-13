@@ -55,6 +55,9 @@ a factor with levels **LINE**, **SKILL**: type of position played by the subject
   
 Variable analysis: You have position (factor) and number of pushups done in two minutes (numerical). What type of graphical display, numerical display and inferential test is appropriate?  
 
+positition is categorical, push up is numerical. So we use numerical - categorical graphical: boxplot 
+summary: data summary 
+inference: t-test to compare means
 
 # Descriptive Results
 
@@ -71,19 +74,20 @@ Typically look at boxplots when considering numerical vs categorical data. Inser
 The two variables of interest are pushups and position. Boxplot graphical displays are good ways to depict data.  --> 
 
 ```{r}
-
+plot(pushups~position,data=players)
 ```
   
 <!-- be sire to tell what the boxplot shows -->
- 
+  The boxplot shows that line players do less push ups in two minutes than the skill players.
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question -->
 
 ```{r}
+summary(players)
 
 ```
-
+This chart shows that weight greatly influences the ability to do pushups quickly. This effects the number of pushups the player can do.  
 
 
 # Inferential Results
@@ -92,11 +96,12 @@ The two variables of interest are pushups and position. Boxplot graphical displa
 
 
 ```{r}
-
+t.test(pushups~position,data=players)
 ```
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. -->
 
-
+the t-test to compare means, has a p-value of 0.0000009421
+This is less than 0.05 therefore we reject the null hypothesis, and conclude that we have evidence that there is a difference in the average number of pushups that can be done in two minutes by line and skill players. 
